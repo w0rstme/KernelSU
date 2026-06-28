@@ -13,6 +13,25 @@ on:
         required: false
         type: boolean
         default: false
+  workflow_dispatch:
+    inputs:
+      target:
+        required: true
+        type: choice
+        description: '选择编译的目标平台'
+        options:
+          - x86_64-pc-windows-msvc
+          - aarch64-linux-android
+          - x86_64-unknown-linux-gnu
+        default: x86_64-pc-windows-msvc
+      pack_lkm:
+        required: false
+        type: boolean
+        default: false
+      pack_ksuinit:
+        required: false
+        type: boolean
+        default: false
 jobs:
   build:
     runs-on: ubuntu-latest
